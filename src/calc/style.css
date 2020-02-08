@@ -1,0 +1,12 @@
+.calc-wrapper {
+  border: 1px solid black;
+  margin: 10px 15vw;
+}
+
+.character-name {
+  font-family: "Courier";
+  color: green;
+  font-size: 1.5em;
+  font-weight: bold;
+  border: none;
+}
