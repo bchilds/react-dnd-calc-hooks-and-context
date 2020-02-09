@@ -12,8 +12,7 @@ const Row = ({ statName }) => {
   const { baseStats, levelStats, additionalStats, race } = character; // race
   const { racialStats = emptyObj } = race; // if no race picked, default to empty obj
 
-  let baseStat = baseStats[statName] || 0;
-  if (baseStat === "") baseStat = 0;
+  const baseStat = baseStats[statName];
   const racialStat = racialStats[statName] || 0;
   const additionalStat = additionalStats[statName] || 0;
   const levelStat = levelStats[statName] || 0;
@@ -24,7 +23,11 @@ const Row = ({ statName }) => {
       <input
         className="base-stat-box"
         value={baseStat}
-        onChange={value => setCharacterBaseStat(statName, value)}
+        type="number"
+        onChange={e => {
+          const value = e.target.value;
+          setCharacterBaseStat(statName, value);
+        }}
       />
       <span className="racial-stat-box">{racialStat}</span>
       <input
@@ -32,7 +35,12 @@ const Row = ({ statName }) => {
         value={additionalStat}
         onChange={() => {}}
       />
-      <input className="level-stat-box" value={levelStat} onChange={() => {}} />
+      <input
+        className="level-stat-box"
+        type="number"
+        value={levelStat}
+        onChange={() => {}}
+      />
       <span>=</span>
       <span className="total-stat-box">{total}</span>
       <span className="mod-box">{getModifier(total)}</span>

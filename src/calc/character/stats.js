@@ -23,19 +23,16 @@ export const getModifier = function(total) {
 };
 
 export const validateBaseStat = function(value, selectedPointsStrategy = {}) {
-  if (!value || value === "") {
-    return "";
-  }
   const { minStat, maxStat } = selectedPointsStrategy;
   if (value < minStat) {
-    return minStat;
+    return Number(minStat);
   }
 
   if (value > maxStat) {
-    return maxStat;
+    return Number(maxStat);
   }
 
-  return value;
+  return Number(value);
 };
 
 export default generateDefaultStats();

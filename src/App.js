@@ -6,6 +6,7 @@ import {
 } from "./calc/character/character-context";
 import defaultStrategy from "./calc/points-strategy/default";
 import { validateBaseStat } from "./calc/character/stats";
+import { calculateRemainingBudget } from "./calc/character/points-budget";
 import "./App.css";
 
 function App() {
@@ -35,10 +36,12 @@ function App() {
   );
 
   const setBaseStat = (name, value) => {
-    setCharacterBaseStats({
+    const newStats = {
       ...characterBaseStats,
       [name]: validateBaseStat(value, selectedPointsStrategy)
-    });
+    };
+    setCharacterBaseStats(newStats);
+    setPointsRemaining(calculateRemainingBudget(newStats, selectedPointsStrategy));
   };
 
   const character = {
