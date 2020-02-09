@@ -1,6 +1,7 @@
 import React from "react";
 import defaultStats from "./stats";
 import { baseHuman } from "./races";
+import { fighter } from "./classes";
 import defaultStrategy from "../points-strategy/default";
 import { noop } from "../../defaults/noop";
 import { emptyObj } from "../../defaults/empty";
@@ -8,7 +9,7 @@ export const defaultCharacter = {
   name: "Player",
   level: 1,
   race: baseHuman,
-  class: emptyObj,
+  characterClass: fighter,
   feats: [],
   baseStats: defaultStats,
   levelStats: emptyObj,

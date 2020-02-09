@@ -6,6 +6,8 @@ import "./style.css";
 const Calc = () => {
   const context = useContext(CharacterContext);
   const { character, pointsRemaining, setCharacterName } = context;
+  console.table(character);
+  const { characterClass, level, name, race } = character;
   return (
     <div className="calc-wrapper">
       <h2>
@@ -13,13 +15,16 @@ const Calc = () => {
         <input
           className="character-name"
           style={{
-            width: `${character.name.length}ch`,
+            width: `${name.length}ch`,
             minWidth: "1ch"
           }}
-          value={character.name}
+          value={name}
           onChange={e => setCharacterName(e.target.value)}
         ></input>
-        .<br></br>You have {pointsRemaining} points remaining.
+        .<br></br>
+        {`You are a level ${level} ${race.raceName} ${characterClass.name}.`}
+        <br></br>
+        You have {pointsRemaining} points remaining.
       </h2>
       <div>This row contains points remaining shit, maybe level</div>
       <PointsGrid />

@@ -11,7 +11,7 @@ function App() {
   const [characterName, setCharacterName] = useState(defaultCharacter.name);
   const [characterLevel, setCharacterLevel] = useState(defaultCharacter.level);
   const [characterRace, setCharacterRace] = useState(defaultCharacter.race);
-  const [characterClass, setCharacterClass] = useState(defaultCharacter.class);
+  const [characterClass, setCharacterClass] = useState(defaultCharacter.characterClass);
   const [characterFeats, setCharacterFeats] = useState(defaultCharacter.feats);
   const [characterBaseStats, setCharacterBaseStats] = useState(
     defaultCharacter.baseStats
@@ -35,7 +35,7 @@ function App() {
     name: characterName,
     level: characterLevel,
     race: characterRace,
-    class: characterClass,
+    characterClass,
     feats: characterFeats,
     baseStats: characterBaseStats,
     levelStats: characterLevelStats,
@@ -61,17 +61,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          DND React Character Creator
+        </h1>
       </header>
       <CharacterProvider value={context}>
         <Calc />

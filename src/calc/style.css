@@ -1,6 +1,7 @@
 .calc-wrapper {
   border: 1px solid black;
-  margin: 10px 15vw;
+  margin: 20px 5vw;
+  padding-bottom: 20px;
 }
 
 .character-name {
