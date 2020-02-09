@@ -9,5 +9,5 @@ export const baseHuman = {
     [WIS]: 1,
     [INT]: 1,
     [CHR]: 1
-  },
+  }
 };

@@ -18,17 +18,12 @@ const renderGridHeader = () => (
 );
 
 const PointsGrid = () => (
-    <div className="stats-grid">
-      {renderGridHeader()}
-      {allStats.map(statName => {
-        return (
-          <Row
-            key={statName}
-            statName={statName}
-          />
-        );
-      })}
-    </div>
-  );
+  <div className="stats-grid">
+    {renderGridHeader()}
+    {allStats.map(statName => {
+      return <Row key={statName} statName={statName} />;
+    })}
+  </div>
+);
 
 export default PointsGrid;
