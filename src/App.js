@@ -4,14 +4,17 @@ import {
   CharacterProvider,
   defaultCharacter
 } from "./calc/character/character-context";
-import defaultStrategy from "./calc//points-strategy/default";
+import defaultStrategy from "./calc/points-strategy/default";
+import { validateBaseStat } from "./calc/character/stats";
 import "./App.css";
 
 function App() {
   const [characterName, setCharacterName] = useState(defaultCharacter.name);
   const [characterLevel, setCharacterLevel] = useState(defaultCharacter.level);
   const [characterRace, setCharacterRace] = useState(defaultCharacter.race);
-  const [characterClass, setCharacterClass] = useState(defaultCharacter.characterClass);
+  const [characterClass, setCharacterClass] = useState(
+    defaultCharacter.characterClass
+  );
   const [characterFeats, setCharacterFeats] = useState(defaultCharacter.feats);
   const [characterBaseStats, setCharacterBaseStats] = useState(
     defaultCharacter.baseStats
@@ -31,6 +34,13 @@ function App() {
     defaultStrategy.pointBudget
   );
 
+  const setBaseStat = (name, value) => {
+    setCharacterBaseStats({
+      ...characterBaseStats,
+      [name]: validateBaseStat(value, selectedPointsStrategy)
+    });
+  };
+
   const character = {
     name: characterName,
     level: characterLevel,
@@ -46,14 +56,16 @@ function App() {
     character,
     selectedPointsStrategy,
     pointsRemaining,
-    setCharacterName,
-    setCharacterLevel,
-    setCharacterRace,
-    setCharacterClass,
-    setCharacterFeats,
-    setCharacterBaseStats,
-    setCharacterLevelStats,
-    setCharacterAdditionalStats,
+    characterActions: {
+      setCharacterName,
+      setCharacterLevel,
+      setCharacterRace,
+      setCharacterClass,
+      setCharacterFeats,
+      setCharacterBaseStat: setBaseStat,
+      setCharacterLevelStats,
+      setCharacterAdditionalStats
+    },
     setSelectedPointsStrategy,
     setPointsRemaining
   };
@@ -61,9 +73,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
-          DND React Character Creator
-        </h1>
+        <h1>DND React Character Creator</h1>
       </header>
       <CharacterProvider value={context}>
         <Calc />

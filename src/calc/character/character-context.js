@@ -20,14 +20,16 @@ const CharacterContext = React.createContext({
   character: defaultCharacter,
   selectedPointsStrategy: defaultStrategy,
   pointsRemaining: defaultStrategy.pointBudget,
-  setCharacterName: noop,
-  setCharacterLevel: noop,
-  setCharacterRace: noop,
-  setCharacterClass: noop,
-  setCharacterFeats: noop,
-  setCharacterBaseStats: noop,
-  setCharacterLevelStats: noop,
-  setCharacterAdditionalStats: noop,
+  characterActions: {
+    setCharacterName: noop,
+    setCharacterLevel: noop,
+    setCharacterRace: noop,
+    setCharacterClass: noop,
+    setCharacterFeats: noop,
+    setCharacterBaseStat: noop,
+    setCharacterLevelStats: noop,
+    setCharacterAdditionalStats: noop
+  },
   setSelectedPointsStrategy: noop,
   setPointsRemaining: noop
 });

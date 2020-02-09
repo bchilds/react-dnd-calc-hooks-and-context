@@ -18,4 +18,24 @@ export const generateDefaultStats = function() {
   };
 };
 
+export const getModifier = function(total) {
+  return Math.floor((total - 10) / 2);
+};
+
+export const validateBaseStat = function(value, selectedPointsStrategy = {}) {
+  if (!value || value === "") {
+    return "";
+  }
+  const { minStat, maxStat } = selectedPointsStrategy;
+  if (value < minStat) {
+    return minStat;
+  }
+
+  if (value > maxStat) {
+    return maxStat;
+  }
+
+  return value;
+};
+
 export default generateDefaultStats();
