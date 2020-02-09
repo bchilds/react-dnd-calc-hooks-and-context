@@ -4,6 +4,7 @@ export const CON = "CON";
 export const INT = "INT";
 export const WIS = "WIS";
 export const CHR = "CHR";
+export const allStats = [STR, DEX, CON, INT, WIS, CHR];
 export const DEFAULT_VALUE = 8;
 
 export const generateDefaultStats = function() {

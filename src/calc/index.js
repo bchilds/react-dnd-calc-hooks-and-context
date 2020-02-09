@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import CharacterContext from "./character/character-context";
-
+import PointsGrid from "./points-grid";
 import "./style.css";
 
 const Calc = () => {
@@ -13,14 +13,16 @@ const Calc = () => {
         <input
           className="character-name"
           style={{
-            width: `${character.characterName.length}ch`,
+            width: `${character.name.length}ch`,
             minWidth: "1ch"
           }}
-          value={character.characterName}
+          value={character.name}
           onChange={e => setCharacterName(e.target.value)}
         ></input>
         .<br></br>You have {pointsRemaining} points remaining.
       </h2>
+      <div>This row contains points remaining shit, maybe level</div>
+      <PointsGrid />
     </div>
   );
 };

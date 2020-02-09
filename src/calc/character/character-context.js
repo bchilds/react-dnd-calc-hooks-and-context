@@ -1,16 +1,18 @@
 import React from "react";
 import defaultStats from "./stats";
+import { baseHuman } from "./races";
 import defaultStrategy from '../points-strategy/default';
 import { noop } from '../../defaults/noop';
+import { emptyObj } from '../../defaults/empty';
 export const defaultCharacter = {
   name: "Player",
   level: 1,
-  race: null,
-  class: null, // this should be its own object
+  race: baseHuman,
+  class: emptyObj,
   feats: [],
   baseStats: defaultStats,
-  levelStats: {},
-  additionalStats: {},
+  levelStats: emptyObj,
+  additionalStats: emptyObj,
 };
 
 const CharacterContext = React.createContext({
